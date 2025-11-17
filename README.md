@@ -178,11 +178,39 @@ Edit the `BubbleCalculatorButton` struct in `ContentView.swift` to modify:
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+### Development Workflow
+
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+2. Create your feature branch following our naming conventions:
+   - `feature/<name>` - For new features
+   - `fix/<description>` - For bug fixes
+   - `docs/<description>` - For documentation
+   - `refactor/<description>` - For refactoring
+   - Example: `git checkout -b feature/scientific-mode`
+3. Commit your changes with clear, descriptive messages
 4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+5. Open a Pull Request to the `main` branch
+
+### Branch Organization
+
+This repository follows a structured branch organization strategy. See [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md) for details.
+
+**Setup Git Hooks** (Optional but recommended):
+```bash
+./scripts/setup-git-hooks.sh
+```
+
+This installs local hooks that:
+- Warn before pushing to main
+- Validate branch naming conventions
+- Check commit message format
+
+### Code Quality
+
+- Ensure code follows Swift style guidelines
+- Add comments for complex logic
+- Update documentation as needed
+- Test on multiple iOS versions if possible
 
 ## 📝 License
 

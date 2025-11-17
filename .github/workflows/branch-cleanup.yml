@@ -1,0 +1,55 @@
+name: Branch Cleanup
+
+on:
+  schedule:
+    # Run weekly on Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: List merged branches
+        id: merged_branches
+        run: |
+          echo "Checking for merged branches..."
+          git fetch origin main
+          git branch -r --merged origin/main | \
+            grep -v "main" | \
+            grep -v "HEAD" | \
+            sed 's/origin\///' > merged_branches.txt
+
+          if [ -s merged_branches.txt ]; then
+            echo "Found merged branches:"
+            cat merged_branches.txt
+            echo "branches_found=true" >> $GITHUB_OUTPUT
+          else
+            echo "No merged branches found"
+            echo "branches_found=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create cleanup report
+        if: steps.merged_branches.branches_found == 'true'
+        run: |
+          echo "# Branch Cleanup Report" > cleanup_report.md
+          echo "" >> cleanup_report.md
+          echo "The following branches have been merged into main and can be deleted:" >> cleanup_report.md
+          echo "" >> cleanup_report.md
+          cat merged_branches.txt | while read branch; do
+            echo "- \`$branch\`" >> cleanup_report.md
+          done
+          echo "" >> cleanup_report.md
+          echo "Generated on: $(date)" >> cleanup_report.md
+
+      - name: Display report
+        if: steps.merged_branches.branches_found == 'true'
+        run: cat cleanup_report.md
