@@ -2,7 +2,7 @@
 //  GlamCalcApp.swift
 //  GlamCalc
 //
-//  Created by Chao Chen on 11/17/25.
+//  Created by Claude
 //
 
 import SwiftUI

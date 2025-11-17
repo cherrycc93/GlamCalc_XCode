@@ -115,6 +115,6 @@ struct ThemeOptionRow: View {
 
 struct ThemeSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        ThemeSelectorView(selectedTheme: .constant(.barbiePink))
+        ThemeSelectorView(selectedTheme: .constant(.glamPink))
     }
 }
