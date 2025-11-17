@@ -1,245 +1,177 @@
-# ✨ GlamCalc
+# GlamCalc ✨
 
-<div align="center">
+A beautifully designed iOS calculator app with glamorous themes, smooth animations, and delightful user interactions.
 
-![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
-![Swift](https://img.shields.io/badge/Swift-5.9-orange)
-![iOS](https://img.shields.io/badge/iOS-17.0+-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+## Features
 
-**A beautiful, pastel-themed calculator app for iOS with crystal-glass aesthetics**
+### 🎨 Multiple Themes
+- **Glam Pink** - Classic glamorous pink gradient
+- **Crystal Glow** - Soft crystal-inspired colors
+- **Rose Gold** - Warm rose gold tones
+- **Midnight Glam** - Dark elegant theme
+- **Cotton Candy** - Pastel blue and pink blend
+- **Lilac Dream** - Soft purple gradient
 
-[Features](#-features) • [Screenshots](#-screenshots) • [Installation](#-installation) • [Usage](#-usage) • [Architecture](#-architecture) • [Contributing](#-contributing)
-
-</div>
-
----
-
-## 🌸 About
-
-GlamCalc is a modern iOS calculator app that combines powerful functionality with stunning visual design. Featuring soft pastel colors, frosted glass effects, and smooth animations, GlamCalc transforms everyday calculations into a delightful experience.
-
-## ✨ Features
-
-### 🎨 **Six Beautiful Themes**
-- **Glam Pink** - Vibrant, warm pink gradient (default)
-- **Crystal Glow** - Cool, icy translucent pink with blue undertones
-- **Rose Gold** - Soft metallic gradient with peachy-gold tones
-- **Midnight Glam** - Deep plum and navy purple for elegant dark mode
-- **Cotton Candy** - Baby blue to pink pastel blend
-- **Lilac Dream** - Soft lavender to violet gradient
-
-### ⚙️ **Customizable Settings**
-- 🔊 **Sound Effects** - Optional button click sounds
-- 📳 **Haptic Feedback** - Tactile vibrations on button press
-- 💾 **Persistent Preferences** - All settings saved automatically
-- 🔄 **Reset Option** - Restore defaults with one tap
-
-### 🧮 **Full Calculator Functionality**
-- Basic operations (+, −, ×, ÷)
+### 🧮 Calculator Features
+- Basic arithmetic operations (addition, subtraction, multiplication, division)
 - Percentage calculations
-- Sign toggle (±)
-- Clear and backspace
-- Large, readable display with auto-scaling text
-- Calculation history tracking
+- Sign toggling (positive/negative)
+- Decimal support
+- Clear and backspace functionality
+- Scientific notation for very large or small numbers
+- 15-digit display limit
 
-### 🎭 **Beautiful Design**
-- Crystal-glass button effects with radial highlights
-- Soft shadows and inner borders for depth
-- Smooth gradient backgrounds
-- Enhanced contrast for readability
-- Accessible design with VoiceOver support
+### 📜 History
+- View all past calculations
+- Tap any history item to reuse the result
+- Timestamps for each calculation
+- Clear history option
+- Stores up to 50 recent calculations
 
-## 📱 Screenshots
+### ⚙️ Settings
+- Toggle sound effects on/off
+- Toggle haptic feedback on/off
+- Reset all settings to defaults
+- Persistent settings using UserDefaults
 
-> *Add screenshots of your app here showing different themes and the settings panel*
+### 🎵 Sound & Haptics
+- Button click sounds using system audio
+- Light haptic feedback for tactile response
+- Can be individually enabled/disabled
 
-## 🛠 Installation
+### 🎭 User Interface
+- Gradient backgrounds matching selected theme
+- Bubble-style buttons with soft-glass effect
+- Radial highlights for 3D appearance
+- Smooth shadows and glows
+- Accessibility labels and hints
+- Sheet presentations for history, settings, and theme selector
 
-### Requirements
-- iOS 17.0+
-- Xcode 15.0+
-- Swift 5.9+
+## Architecture
 
-### Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/GlamCalc.git
-   cd GlamCalc
-   ```
-
-2. **Open in Xcode**
-   ```bash
-   open GlamCalc.xcodeproj
-   ```
-
-3. **Build and Run**
-   - Select your target device or simulator
-   - Press `⌘ + R` to build and run
-
-## 🎯 Usage
-
-### Basic Calculations
-1. Tap numbers and operators to build your calculation
-2. Press `=` to see the result
-3. Use `AC` to clear, or `±` to toggle sign
-
-### Changing Themes
-1. Tap the ✨ sparkles icon at the top
-2. Select from 6 beautiful themes
-3. Your choice is saved automatically
-
-### Adjusting Settings
-1. Tap the ⚙️ gear icon at the top
-2. Toggle sound effects and haptic feedback
-3. Use "Reset Settings" to restore defaults
-
-### Viewing History
-1. Tap the 🕐 clock icon at the top
-2. Browse your calculation history
-3. Tap any result to reuse it
-
-## 🏗 Architecture
-
-### Project Structure
+### Files Structure
 
 ```
 GlamCalc/
-├── GlamCalcApp.swift              # App entry point
-├── ContentView.swift              # Main calculator UI
-├── CalculatorModel.swift          # Business logic & calculations
-├── CalculatorTheme.swift          # Theme system with color definitions
-├── SettingsManager.swift          # Settings persistence with UserDefaults
-├── SoundManager.swift             # Audio feedback system
-├── Views/
-│   ├── HistoryView.swift          # Calculation history panel
-│   ├── SettingsView.swift         # Settings configuration panel
-│   └── ThemeSelectorView.swift    # Theme picker bottom sheet
-└── Assets.xcassets/               # App icons and assets
+├── GlamCalcApp.swift          # App entry point
+├── ContentView.swift          # Main calculator interface
+├── ThemeSelectorView.swift    # Theme selection sheet
+├── HistoryView.swift          # Calculation history sheet
+├── SettingsView.swift         # App settings sheet
+├── CalculatorModel.swift      # Calculator logic and state
+├── CalculatorTheme.swift      # Theme definitions and colors
+├── SettingsManager.swift      # Settings persistence
+└── SoundManager.swift         # Audio management
 ```
-
-### Key Technologies
-- **SwiftUI** - Modern declarative UI framework
-- **Combine** - Reactive programming for settings
-- **UserDefaults** - Persistent storage
-- **AVFoundation** - Audio playback
-- **UIKit Haptics** - Tactile feedback
 
 ### Design Patterns
-- **MVVM** - Model-View-ViewModel architecture
-- **Singleton** - SettingsManager shared instance
-- **Observer** - Published properties with Combine
-- **Dependency Injection** - Theme passing to child views
 
-## 🎨 Customization
+- **MVVM Architecture**: Views observe model changes via `@Published` properties
+- **Singleton Pattern**: `SettingsManager` and `SoundManager` use shared instances
+- **SwiftUI Declarative UI**: All interfaces built with SwiftUI
+- **Combine Framework**: Observable objects for reactive updates
 
-### Adding a New Theme
+## Technical Details
 
-1. Open `CalculatorTheme.swift`
-2. Add a new case to the enum:
-   ```swift
-   case myTheme = "My Theme"
-   ```
-3. Define colors in each computed property:
-   ```swift
-   var backgroundColors: [Color] {
-       switch self {
-       case .myTheme:
-           return [Color(hex: "FF00FF"), Color(hex: "00FFFF")]
-       // ... other cases
-       }
-   }
-   ```
+### Requirements
+- iOS 15.0+
+- Xcode 13.0+
+- Swift 5.5+
 
-### Changing Button Styles
+### Frameworks Used
+- SwiftUI - UI framework
+- Foundation - Core functionality
+- AVFoundation - Audio playback
+- Combine - Reactive programming
 
-Edit the `BubbleCalculatorButton` struct in `ContentView.swift` to modify:
-- Font size and weight
-- Border radius and shadows
-- Opacity and gradients
-- Animations and transitions
+### Key Components
 
-## 🐛 Known Issues
+#### CalculatorModel
+- Manages calculator state and operations
+- Handles number input and display formatting
+- Maintains calculation history
+- Supports chained operations
 
-- None currently! 🎉
+#### CalculatorTheme
+- Defines 6 unique themes
+- Provides colors for all UI elements
+- Supports gradients and shadow colors
+- Theme-specific styling for each component
 
-## 🗺 Roadmap
+#### SettingsManager
+- Persists user preferences
+- Observable for reactive UI updates
+- Manages theme selection
+- Handles sound and haptic settings
 
-- [ ] iPad support with landscape mode
-- [ ] Scientific calculator mode
-- [ ] Custom theme creator
-- [ ] Export calculation history
-- [ ] Widget support
-- [ ] Apple Watch companion app
-- [ ] Keyboard shortcuts (iPad)
+#### SoundManager
+- Plays system sounds for button clicks
+- Respects user settings
+- Configured for ambient audio category
 
-## 🤝 Contributing
+## User Experience
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### Interactions
+1. **Calculator Buttons**: Tap number, operator, or utility buttons
+2. **Theme Selection**: Tap sparkles icon to open theme selector
+3. **History**: Tap clock icon to view calculation history
+4. **Settings**: Tap gear icon to adjust preferences
+5. **History Reuse**: Tap any history item to use that result
 
-### Development Workflow
+### Visual Design
+- Soft gradients with multiple color stops
+- Translucent glass-effect buttons
+- Radial highlights for depth perception
+- Theme-coordinated shadows and glows
+- Rounded corners throughout (16-40pt radius)
 
-1. Fork the repository
-2. Create your feature branch following our naming conventions:
-   - `feature/<name>` - For new features
-   - `fix/<description>` - For bug fixes
-   - `docs/<description>` - For documentation
-   - `refactor/<description>` - For refactoring
-   - Example: `git checkout -b feature/scientific-mode`
-3. Commit your changes with clear, descriptive messages
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request to the `main` branch
+### Accessibility
+- VoiceOver labels for all buttons
+- Accessibility hints for actions
+- High contrast text on all backgrounds
+- Large tap targets (50-70pt)
 
-### Branch Organization
+## Future Enhancements
 
-This repository follows a structured branch organization strategy. See [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md) for details.
+Potential features for future versions:
+- Additional scientific functions (sin, cos, tan, log)
+- Memory functions (M+, M-, MR, MC)
+- Landscape mode with expanded functions
+- Export history to CSV or share
+- Custom theme creator
+- Widget support
+- iPad optimization
+- More theme options
 
-**Setup Git Hooks** (Optional but recommended):
-```bash
-./scripts/setup-git-hooks.sh
-```
+## Development
 
-This installs local hooks that:
-- Warn before pushing to main
-- Validate branch naming conventions
-- Check commit message format
+### Building the Project
+1. Clone the repository
+2. Open `GlamCalc.xcodeproj` in Xcode
+3. Select your target device or simulator
+4. Press ⌘R to build and run
 
-### Code Quality
+### Testing
+- All calculations can be tested manually through the UI
+- History persistence can be verified by force-quitting and relaunching
+- Settings persistence verified through app restarts
+- Themes can be tested by switching between all options
 
-- Ensure code follows Swift style guidelines
-- Add comments for complex logic
-- Update documentation as needed
-- Test on multiple iOS versions if possible
+## License
 
-## 📝 License
+All rights reserved.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Version History
 
-## 🙏 Acknowledgments
-
-- Inspired by modern design trends in calculator apps
-- Built with SwiftUI and love 💕
-- Sound effects from Apple's system audio library
-
-## 👤 Author
-
-**Your Name**
-- GitHub: [@cherrycc93](https://github.com/cherrycc93)
-
-## 📧 Contact
-
-Have questions or suggestions? Feel free to reach out!
-
-- Open an issue on GitHub
-- Email: cherrycc93@gmail.com
+### Version 1.0
+- Initial release
+- 6 beautiful themes
+- Basic and advanced calculator operations
+- Calculation history
+- Sound and haptic feedback
+- Settings management
+- Theme customization
 
 ---
 
-<div align="center">
-
-**Made with ✨ and Swift**
-
-⭐️ Star this repo if you like GlamCalc!
-
-</div>
+Made with ✨ and SwiftUI
