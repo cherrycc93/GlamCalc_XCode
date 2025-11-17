@@ -197,15 +197,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Twitter: [@yourhandle](https://twitter.com/yourhandle)
+- GitHub: [@cherrycc93](https://github.com/cherrycc93)
 
 ## 📧 Contact
 
 Have questions or suggestions? Feel free to reach out!
 
 - Open an issue on GitHub
-- Email: your.email@example.com
+- Email: cherrycc93@gmail.com
 
 ---
 
