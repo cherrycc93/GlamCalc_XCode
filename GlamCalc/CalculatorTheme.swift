@@ -2,7 +2,9 @@
 //  CalculatorTheme.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  Defines all available calculator themes and their associated color schemes.
+//  Each theme provides colors for backgrounds, buttons, text, shadows, and
+//  other UI elements to create a cohesive visual experience.
 //
 
 import SwiftUI

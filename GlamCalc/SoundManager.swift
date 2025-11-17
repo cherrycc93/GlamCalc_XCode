@@ -2,7 +2,9 @@
 //  SoundManager.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  Singleton manager that handles audio playback for button clicks and other
+//  sound effects. Uses system sounds via AudioServicesPlaySystemSound for
+//  lightweight, consistent audio feedback.
 //
 
 import AVFoundation

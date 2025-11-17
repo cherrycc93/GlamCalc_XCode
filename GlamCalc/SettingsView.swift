@@ -2,7 +2,9 @@
 //  SettingsView.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  Presents the app settings interface where users can toggle sound and haptic
+//  feedback options, and reset all settings to defaults. Uses theme-based styling
+//  to match the selected calculator theme.
 //
 
 import SwiftUI

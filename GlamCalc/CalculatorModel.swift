@@ -2,7 +2,10 @@
 //  CalculatorModel.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  The core calculator logic and state management. Handles all arithmetic
+//  operations, number input, display formatting, and maintains calculation
+//  history. Implements operations like add, subtract, multiply, divide,
+//  percentage, and sign toggling.
 //
 
 import Foundation

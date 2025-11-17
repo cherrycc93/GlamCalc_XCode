@@ -2,7 +2,9 @@
 //  HistoryView.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  Displays a scrollable list of past calculations. Users can tap any history
+//  item to reuse the result in the calculator. Includes an empty state view
+//  and options to clear history.
 //
 
 import SwiftUI

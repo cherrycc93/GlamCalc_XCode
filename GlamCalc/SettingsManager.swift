@@ -2,7 +2,9 @@
 //  SettingsManager.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  Singleton manager that handles app-wide settings persistence using UserDefaults.
+//  Manages sound and haptic preferences, as well as the selected theme. Published
+//  properties allow views to reactively update when settings change.
 //
 
 import Foundation

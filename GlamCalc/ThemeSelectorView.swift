@@ -1,8 +1,11 @@
 //
+//
 //  ThemeSelectorView.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  A sheet view that presents all available calculator themes and allows
+//  the user to select one. Displays each theme with a preview circle and
+//  provides haptic feedback on selection.
 //
 
 import SwiftUI

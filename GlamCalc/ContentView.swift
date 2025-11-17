@@ -2,7 +2,9 @@
 //  ContentView.swift
 //  GlamCalc
 //
-//  Created by Claude
+//  The main calculator interface view. Contains the display, calculator buttons,
+//  theme-based gradient backgrounds, and navigation to settings, history, and theme
+//  selector. Handles all button press interactions and manages sound/haptic feedback.
 //
 
 import SwiftUI
